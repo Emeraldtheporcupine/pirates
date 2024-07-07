@@ -48,7 +48,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite,
         assets.animation`Pirate Swing w Sword`,
         100,
-        true
+        false
         )
     } else if (Facing_L == true) {
         Facing_L = true
@@ -57,7 +57,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite,
         assets.animation`Pirate Swing w Sword0`,
         100,
-        true
+        false
         )
     }
 })
