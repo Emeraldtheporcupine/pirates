@@ -15,7 +15,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite,
         assets.animation`Pirate Walk0`,
         200,
-        false
+        true
         )
     }
 })
@@ -36,7 +36,7 @@ controller.up.onEvent(ControllerButtonEvent.Released, function () {
         mySprite,
         assets.animation`Pirate Stand L`,
         200,
-        false
+        true
         )
     }
 })
@@ -97,7 +97,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite,
         assets.animation`Pirate Walk0`,
         200,
-        false
+        true
         )
     }
 })
@@ -118,7 +118,7 @@ controller.down.onEvent(ControllerButtonEvent.Released, function () {
         mySprite,
         assets.animation`Pirate Stand L`,
         200,
-        false
+        true
         )
     }
 })
