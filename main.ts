@@ -149,7 +149,6 @@ let Facing_R = false
 Facing_R = true
 tiles.setCurrentTilemap(tilemap`level`)
 mySprite = sprites.create(assets.image`Pirate`, SpriteKind.Player)
-music.play(music.createSong(assets.song`mySong`), music.PlaybackMode.LoopingInBackground)
 animation.runImageAnimation(
 mySprite,
 assets.animation`Pirate Stand`,
@@ -157,3 +156,4 @@ assets.animation`Pirate Stand`,
 true
 )
 controller.moveSprite(mySprite, 50, 50)
+music.play(music.createSong(assets.song`Song`), music.PlaybackMode.LoopingInBackground)
