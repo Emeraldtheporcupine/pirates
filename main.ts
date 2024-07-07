@@ -40,6 +40,27 @@ controller.up.onEvent(ControllerButtonEvent.Released, function () {
         )
     }
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Facing_R == true) {
+        Facing_R = true
+        Facing_L = false
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Swing w Sword`,
+        100,
+        true
+        )
+    } else if (Facing_L == true) {
+        Facing_L = true
+        Facing_R = false
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Swing w Sword0`,
+        100,
+        true
+        )
+    }
+})
 controller.left.onEvent(ControllerButtonEvent.Released, function () {
     Facing_L = true
     Facing_R = false
