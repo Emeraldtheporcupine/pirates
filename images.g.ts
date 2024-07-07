@@ -935,6 +935,93 @@ e e e e e e e e e e e e e e e e
 . . . . . . . . 2 2 . . 4 4 4 . 
 . . . . . . . f f f . f f f f . 
 `];
+            case "Pirate Swing w Sword":
+            case "anim9":return [img`
+. . e e . . e e . 1 1 b . . . . 
+. e e c e e e e 1 b b b b . . . 
+. . c e e e e 1 b b b b b b . . 
+e e e e d d d b b . . . 1 b . . 
+. f f d f d f d . . b . e b . . 
+d b d d d b d d e d d e . b . . 
+d d b d d d d e . e d d . . . . 
+. . . d d d e . e e e . . . . . 
+. e e e e e e e e e . . . . . . 
+e e c e e e c c e . . . . . . . 
+e c e e e e e . . . . . . . . . 
+d d d e e e e . . . . . . . . . 
+d d a a a c c . . . . . . . . . 
+. a a a . . c c . . . . . . . . 
+. a a a . . c c . . . . . . . . 
+. f f f f . f f f . . . . . . . 
+`, img`
+. . e e . . e e . . . . . . . . 
+. e e c e e e e . . 1 1 1 b . . 
+. . c e e e e . . 1 b b b b b . 
+e e e e d d d f . . . . . 1 b b 
+. f f d f d f d . . . b . . b b 
+d b d d d b d d . e . . b . b b 
+d d b d d d d e . . e d . . b b 
+. . . d d d . . e . e . d . b b 
+. e e e e e e e e e e d d e b b 
+e e c e e e c e e e e d . . b . 
+e c e e e e e . . . . . . . . . 
+d d d e e e e . . . . . . . . . 
+d d a a a c c . . . . . . . . . 
+. a a a . . c c . . . . . . . . 
+. a a a . . c c . . . . . . . . 
+. f f f f . f f f . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . e e . . e e . . . . b . . . 
+. e e c e e e e . . . . . b . . 
+. . c e e e e . . . . b . . b . 
+e e e e d d d f . . . . b . b . 
+. f f d f d f d . . b . b . b 1 
+d b d d d b d d . . b . b . b b 
+d d b d d d d . . e b . b . b b 
+. . . d d d . e . . b . b . b b 
+. e e e e e e e . e . . b . b b 
+e e c e e e c e e . . e b . b b 
+e c e e e e e c e e e . b . b b 
+b b d e e e e . e e . b . . b b 
+d d a a a c c c d d . d . 1 b b 
+. a a a . . c c d d d 1 1 b b . 
+. f f f f . f f f e 1 b b b . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . e e . . . . . . . . . . . . 
+. e e c e e e e . . . . . . . . 
+. . c e e e e e . . . . . . . . 
+e e e e d d d f . . . . . . . . 
+. f f d f d f d . . . . . . . . 
+d b d d d b d d . . . . . . . . 
+d d b d d d d . . . . . . . . . 
+. . . d d d . . . . . . . . . . 
+. e e e e e e e . . . . . . . . 
+e e c e e e c e e . . . . b . . 
+e c e e e e e c e . . . . b . . 
+d d d e e e e d d d . . b . . . 
+d d a a a c c d d e b b . . . . 
+. a a a . . c c b b b . . . . . 
+. f f f f . f f f . . . . . . . 
+`, img`
+. . e e . . . . . . . . . . . . 
+. e e c e e e e . . . . . . . . 
+. . c e e e e e . . . . . . . . 
+e e e e d d d f . . . . . . . . 
+. f f d f d f d . . . . . . . . 
+d b d d d b d d . . . . . . . . 
+d d b d d d d . . . . . . . . . 
+. . . d d d . . . . . . . . . . 
+. e e e e e e e . . . . . . . . 
+e e c e e e c e e . . . . . . . 
+e c e e e e e c e . . . . . . . 
+d d d e e e e d d d . . . . . . 
+d d a a a c c d d . . . . . . . 
+. a a a . . c c . . . . . . . . 
+. a a a . . c c . . . . . . . . 
+. f f f f . f f f . . . . . . . 
+`];
         }
         return null;
     })
