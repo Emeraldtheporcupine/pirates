@@ -91,6 +91,14 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+controller.B.onEvent(ControllerButtonEvent.Released, function () {
+    animation.runImageAnimation(
+    mySprite,
+    assets.animation`Pirate Stand`,
+    200,
+    true
+    )
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     Facing_L = true
     Facing_R = false
@@ -121,6 +129,14 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         true
         )
     }
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    assets.animation`Pirate Parry`,
+    100,
+    false
+    )
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     if (Facing_R == true) {
@@ -156,4 +172,4 @@ assets.animation`Pirate Stand`,
 true
 )
 controller.moveSprite(mySprite, 50, 50)
-music.play(music.createSong(assets.song`mySong`), music.PlaybackMode.LoopingInBackground)
+music.play(music.createSong(assets.song`mySong0`), music.PlaybackMode.LoopingInBackground)
