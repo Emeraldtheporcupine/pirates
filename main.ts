@@ -156,4 +156,4 @@ assets.animation`Pirate Stand`,
 true
 )
 controller.moveSprite(mySprite, 50, 50)
-music.play(music.createSong(assets.song`Song`), music.PlaybackMode.LoopingInBackground)
+music.play(music.createSong(assets.song`mySong`), music.PlaybackMode.LoopingInBackground)
