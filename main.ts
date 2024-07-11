@@ -50,6 +50,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         100,
         false
         )
+        music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 255, 0, 100, SoundExpressionEffect.Vibrato, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
     } else if (Facing_L == true) {
         Facing_L = true
         Facing_R = false
@@ -59,6 +60,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         100,
         false
         )
+        music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 255, 0, 100, SoundExpressionEffect.Vibrato, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Released, function () {
