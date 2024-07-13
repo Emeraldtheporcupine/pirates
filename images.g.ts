@@ -1706,6 +1706,127 @@ d d e e e 6 6 6 6 6 6 6 e e d d
 . . . 2 4 2 2 2 2 2 2 2 2 2 . . 
 . . . 2 2 2 2 2 2 2 2 2 . . . . 
 `];
+            case "Police Die":
+            case "anim19":return [img`
+. . . . . . . . . . . . . . . . 
+. . . a a a . . . . . . . . . . 
+. . a a a 5 5 . . . . . . . . . 
+. . a a a a a a a . . . . . . . 
+. . e e d d d d e . . . . . . . 
+. . d d d 1 d 1 . . . . . . . . 
+. . d d d d b d . . . . . . . . 
+. . . d d d d . . . . . . . . . 
+. a a a a a a a a . . . . . . . 
+a a c a a a a c a . . . . . . . 
+a d e e e e e e e e e . . . . . 
+d d b f f f e e d . . . . . . . 
+. . e e e c c c . . . . . . . . 
+. e e e . . c c c . . . . . . . 
+. e e . . . . c c . . . . . . . 
+. f f f . . . f f f . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . a a a . . . . . . . . . . 
+. . a a a 5 5 . . . . . . . . . 
+d d a a a a a a a d d . . . . . 
+d d e e d d d d e d d . . . . . 
+a a d d d 1 d 1 . a a . . . . . 
+a a d d d d b d . a a . . . . . 
+a a . d d d d . . a a . . . . . 
+a a a a a a a a a a a . . . . . 
+a c c a a a a c c a . . . . . . 
+. a a a a a a a a . . . . . . . 
+. . a a a a a a . . . . . . . . 
+. . e e e c c c . . . . . . . . 
+. e e e . . c c c . . . . . . . 
+. e e . . . . c c . . . . . . . 
+. f f f . . . f f f . . . . . . 
+`, img`
+e e e e e e e e . . . . . . . . 
+. . . . e e e e e . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . a a a . . . . . . . . . . 
+. . a a a 5 5 . . . . . . . . . 
+. . a a a a a a a . . . . . . . 
+. . e e d d d d e . . . . . . . 
+d d d d d 1 d 1 . d d . . . . . 
+d d d d d d b d . d d . . . . . 
+a a . d d d d . . a a . . . . . 
+a a a a a a a a a a a . . . . . 
+a c c a a a a c c a . . . . . . 
+. . a a a a a a . . . . . . . . 
+. e e e . . c c c . . . . . . . 
+. e e . . . . c c . . . . . . . 
+. f f f . . . f f f . . . . . . 
+`, img`
+. . . e . . . . . . . . . . . . 
+. . e e e . . . . . . . . . . . 
+. . . e e e e . . . . . . . . . 
+. . . . . e e e . . . . . . . . 
+. . . . . . e e e . . . . . . . 
+. . . . . . . e e e . . . . . . 
+. . . . . . . . e e . . . . . . 
+. . . . a a a . . . . . . . . . 
+. . . a a a 5 5 . . . . . . . . 
+. . . a a a a a a a . . . . . . 
+. . . e e d d d d e . . . . . . 
+. . . d d d d d d . . . . . . . 
+. . . d d d d b d . . . . . . . 
+f . . a d d d d a a . . f . . . 
+f d d c a a a a c c d d f . . . 
+f d d a a a a a a c d d f . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . e e e . . . . . . . . . . 
+. . . . e e e e . . . . . . . . 
+. . . . . . e e e e . . . . . . 
+. . . . a a a e e e e . . . . . 
+. . . a a a 5 5 . e e e . . . . 
+. . . a a a a a a a . e . . . . 
+. . . e e d d d d e . . . . . . 
+. . . d d d d d d . . . . . . . 
+f . . d d d d b d . . . f . . . 
+f d d a d d d d a a d d f . . . 
+f d d a a a a a a c d d f . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . e . . . . . 
+. . . . a a a . . . . e . . . . 
+. . . a a a 5 5 . . e e . . . . 
+. . . a a a a a a a e e . . . . 
+. . . e e d d d d e e e . . . . 
+. . . d d d d d d . e e . . . . 
+. . . d d d d b d . e e . . . . 
+f . . a d d d d a a e e f . . . 
+f d d c a a a a c c e e f . . . 
+f d d a a a a a a c e e f . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . e . . . . . 
+. . . . a a a . . . . e . . . . 
+. . . a a a 5 5 . . e e . . . . 
+. . . a a a a a a a e e . . . . 
+. . . e e d d d d e e e . . . . 
+. . . d d d d d d . e e . . . . 
+. . . d d d d b d . e e . . . . 
+f . . a d d d d a a e e f . . . 
+f d d c a a a a c c e e f . . . 
+f d d a a a a a a c e e f . . . 
+`];
         }
         return null;
     })
