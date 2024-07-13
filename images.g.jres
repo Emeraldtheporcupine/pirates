@@ -34,6 +34,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Heart"
     },
+    "image8": {
+        "data": "hwQQABAAAAAAAAAAAADw/wAAAAAAAADdAAAAAAAAAN0AAAAAqt6trAAAAKCq3t2qAAAAoKrd3aoAAACgrt3dqgAAAACu3duqAAAAAKDdrawAAAAAoA6gzAAAAA7u7u7uAAAA4O7u7u4AAAAAAADw/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Police Broken and Broke"
+    },
     "anim3": {
         "namespace": "myAnimations",
         "id": "anim3",

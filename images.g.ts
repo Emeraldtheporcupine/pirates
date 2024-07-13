@@ -171,6 +171,25 @@ eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee........................................
 . . 2 2 2 f . . 
 . . . 2 f . . . 
 `;
+            case "image8":
+            case "Police Broken and Broke":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . e . . . . . 
+. . . . a a a . . . . e . . . . 
+. . . a a a e e . . e e . . . . 
+. . . a a a a a a a e e . . . . 
+. . . e e d d d d e e e . . . . 
+. . . d d d d d d . e e . . . . 
+. . . d d d d b d . e e . . . . 
+f . . a d d d d a a e e f . . . 
+f d d c a a a a c c e e f . . . 
+f d d a a a a a a c e e f . . . 
+`;
         }
         return null;
     })
