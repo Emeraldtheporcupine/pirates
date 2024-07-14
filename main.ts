@@ -16,6 +16,14 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     } else if (mySprite.y == 40) {
     	
     }
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Walk Back`,
+        200,
+        true
+        )
+    }
 })
 function Menu_Main () {
     music.stopAllSounds()
@@ -49,6 +57,26 @@ function Play () {
     tiles.setCurrentTilemap(tilemap`level5`)
     music.play(music.createSong(assets.song`Marchin Into Town`), music.PlaybackMode.LoopingInBackground)
 }
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Stand L`,
+        200,
+        true
+        )
+    }
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Stand`,
+        200,
+        true
+        )
+    }
+})
 function Music () {
     characterAnimations.runFrames(
     mySprite,
@@ -63,6 +91,16 @@ function Music () {
     Music_Counter_Max = 8
     textSprite.setPosition(75, 60)
 }
+controller.up.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Wait Back`,
+        200,
+        true
+        )
+    }
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (In_Music > 0) {
         music.stopAllSounds()
@@ -70,18 +108,14 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         Menu_Main()
     }
 })
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    music.stopAllSounds()
-    console.log(In_Music)
-    if (mySprite.y == 40) {
-        Playing = 1
-        Play()
-    } else if (mySprite.y == 65) {
-        In_Music = 1
-        Music()
-    }
-    if (In_Music > 0) {
-        Play_Music()
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Walk0`,
+        200,
+        true
+        )
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -97,12 +131,51 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             textSprite.setPosition(75, 60)
         }
     }
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Walk`,
+        200,
+        true
+        )
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mySprite.y == 40) {
+        music.stopAllSounds()
+        Playing = 1
+        Play()
+    } else if (mySprite.y == 65) {
+        music.stopAllSounds()
+        In_Music = 1
+        Music()
+    }
+    if (In_Music > 0) {
+        music.stopAllSounds()
+        Play_Music()
+    }
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Swing w Sword`,
+        100,
+        false
+        )
+    }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
         mySprite.y += 25
     } else if (mySprite.y == 65) {
     	
+    }
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Walk Forward`,
+        200,
+        true
+        )
     }
 })
 function Play_Music () {
@@ -132,10 +205,20 @@ function Play_Music () {
         music.play(music.createSong(assets.song`mySong3`), music.PlaybackMode.LoopingInBackground)
     }
 }
-let Playing = 0
+controller.down.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Wait Forward`,
+        200,
+        true
+        )
+    }
+})
 let Music_Counter_Max = 0
 let textSprite: TextSprite = null
 let Facing_R = false
+let Playing = 0
 let mySprite: Sprite = null
 let Music_Counter = 0
 let In_Music = 0
