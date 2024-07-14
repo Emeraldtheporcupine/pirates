@@ -161,18 +161,11 @@ controller.down.onEvent(ControllerButtonEvent.Released, function () {
         )
     }
 })
-let Facing_L = false
 let mySprite: Sprite = null
+let Facing_L = false
 let Facing_R = false
-scene.setBackgroundImage(assets.image`Background`)
-Facing_R = true
-tiles.setCurrentTilemap(tilemap`level`)
-mySprite = sprites.create(assets.image`Pirate`, SpriteKind.Player)
-animation.runImageAnimation(
-mySprite,
-assets.animation`Pirate Stand`,
-200,
-true
-)
-controller.moveSprite(mySprite, 50, 50)
-music.play(music.createSong(assets.song`Theme`), music.PlaybackMode.LoopingInBackground)
+game.setDialogTextColor(10)
+game.showLongText("Welcome to the unused gallery!", DialogLayout.Bottom)
+game.showLongText("Select 'Play' to play the engine.", DialogLayout.Bottom)
+game.showLongText("Select 'Music' to hear unused music.", DialogLayout.Bottom)
+game.showLongText("Have fun! :)", DialogLayout.Bottom)
