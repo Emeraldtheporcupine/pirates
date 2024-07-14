@@ -8,6 +8,12 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
+function Menu_Main () {
+    scene.setBackgroundImage(assets.image`Menu`)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+    mySprite = sprites.create(assets.image`myImage`, SpriteKind.Cursor)
+    mySprite.setPosition(30, 40)
+}
 function Play () {
     characterAnimations.runFrames(
     mySprite,
@@ -19,17 +25,7 @@ function Play () {
     game.setGameOverMessage(true, "Not Done Yet.")
     game.gameOver(true)
 }
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.y == 40) {
-        Play()
-    } else if (mySprite.y == 65) {
-        Music()
-    } else if (In_Music > 0) {
-        Play_Music()
-    }
-})
 function Music () {
-    In_Music = 1
     characterAnimations.runFrames(
     mySprite,
     assets.animation`myAnim`,
@@ -41,8 +37,14 @@ function Music () {
     textSprite = textsprite.create("Song " + Music_Counter, 1, 15)
     Music_Counter_Max = 8
     textSprite.setPosition(75, 60)
-    textSprite.setPosition(75, 60)
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (In_Music > 0) {
+        music.stopAllSounds()
+        In_Music = 0
+        Menu_Main()
+    }
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (In_Music > 0) {
         sprites.destroy(textSprite)
@@ -57,6 +59,18 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    console.log(In_Music)
+    if (mySprite.y == 40) {
+        Play()
+    } else if (mySprite.y == 65) {
+        In_Music = 1
+        Music()
+    }
+    if (In_Music > 0) {
+        Play_Music()
+    }
+})
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
         mySprite.y += 25
@@ -65,7 +79,31 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function Play_Music () {
-	
+    if (Music_Counter == 1) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`Song`), music.PlaybackMode.InBackground)
+    } else if (Music_Counter == 2) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`Theme`), music.PlaybackMode.InBackground)
+    } else if (Music_Counter == 3) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`Title Intro`), music.PlaybackMode.InBackground)
+    } else if (Music_Counter == 4) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`Title`), music.PlaybackMode.InBackground)
+    } else if (Music_Counter == 5) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`mySong`), music.PlaybackMode.InBackground)
+    } else if (Music_Counter == 6) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`mySong1`), music.PlaybackMode.InBackground)
+    } else if (Music_Counter == 7) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`mySong0`), music.PlaybackMode.InBackground)
+    } else if (Music_Counter == 8) {
+        music.stopAllSounds()
+        music.play(music.createSong(assets.song`mySong3`), music.PlaybackMode.InBackground)
+    }
 }
 let Music_Counter_Max = 0
 let textSprite: TextSprite = null
@@ -80,5 +118,4 @@ game.showLongText("Welcome to the unused gallery!", DialogLayout.Bottom)
 game.showLongText("Select 'Play' to play the engine.", DialogLayout.Bottom)
 game.showLongText("Select 'Music' to hear unused music.", DialogLayout.Bottom)
 game.showLongText("Have fun! :)", DialogLayout.Bottom)
-mySprite = sprites.create(assets.image`myImage`, SpriteKind.Cursor)
-mySprite.setPosition(30, 40)
+Menu_Main()
