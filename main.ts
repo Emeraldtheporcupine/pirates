@@ -1,6 +1,15 @@
 namespace SpriteKind {
     export const Cursor = SpriteKind.create()
 }
+function stuuuuuuuuuuuuuuuf () {
+    // Swingin' ye sword!
+    music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+    tiles.setWallAt(tiles.getTileLocation(0, 0), false)
+    // Ye DIED. Too bad.
+    music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 129, 0, 25, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+    // Ye got HIT?!
+    music.play(music.createSoundEffect(WaveShape.Sine, 745, 1, 217, 0, 75, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.InBackground)
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 65) {
         mySprite.y += -25
@@ -79,25 +88,16 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (In_Music > 0) {
         sprites.destroy(textSprite)
         Music_Counter += 1
-        textSprite = textsprite.create("Song " + Music_Counter, 1, 15)
+        textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
         textSprite.setPosition(75, 60)
         if (Music_Counter_Max < Music_Counter) {
             sprites.destroy(textSprite)
             Music_Counter = 1
-            textSprite = textsprite.create("Song " + Music_Counter, 1, 15)
+            textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
             textSprite.setPosition(75, 60)
         }
     }
 })
-function Stuffffff () {
-    // Swingin' ye sword!
-    music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-    tiles.setWallAt(tiles.getTileLocation(0, 0), false)
-    // Ye DIED. Too bad.
-    music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 129, 0, 25, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-    // Ye got HIT?!
-    music.play(music.createSoundEffect(WaveShape.Sine, 745, 1, 217, 0, 75, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.InBackground)
-}
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
         mySprite.y += 25
