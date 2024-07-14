@@ -9,50 +9,32 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function Play () {
-    game.gameOver(true)
-}
-function Music () {
-    game.gameOver(true)
-}
-controller.left.onEvent(ControllerButtonEvent.Released, function () {
-    Facing_L = true
-    Facing_R = false
-    animation.runImageAnimation(
+    characterAnimations.runFrames(
     mySprite,
-    assets.animation`Pirate Stand L`,
-    200,
-    true
+    assets.animation`myAnim`,
+    100,
+    characterAnimations.rule(Predicate.NotMoving)
     )
-})
+    pause(600)
+    game.gameOver(true)
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`myAnim`,
-        100,
-        false
-        )
         Play()
     } else if (mySprite.y == 65) {
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`myAnim`,
-        100,
-        false
-        )
         Music()
     }
 })
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    Facing_L = true
-    Facing_R = false
-    animation.runImageAnimation(
+function Music () {
+    characterAnimations.runFrames(
     mySprite,
-    assets.animation`Pirate Walk0`,
-    200,
-    true
+    assets.animation`myAnim`,
+    100,
+    characterAnimations.rule(Predicate.NotMoving)
     )
-})
+    pause(600)
+    game.gameOver(true)
+}
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
         mySprite.y += 25
@@ -60,8 +42,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
-let Facing_R = false
-let Facing_L = false
 let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`Menu`)
 game.setDialogTextColor(10)
