@@ -164,6 +164,7 @@ controller.down.onEvent(ControllerButtonEvent.Released, function () {
 let Facing_L = false
 let mySprite: Sprite = null
 let Facing_R = false
+scene.setBackgroundImage(assets.image`Background`)
 Facing_R = true
 tiles.setCurrentTilemap(tilemap`level`)
 mySprite = sprites.create(assets.image`Pirate`, SpriteKind.Player)
