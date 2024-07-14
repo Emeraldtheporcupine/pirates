@@ -89,6 +89,15 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+function Stuffffff () {
+    // Swingin' ye sword!
+    music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 255, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+    tiles.setWallAt(tiles.getTileLocation(0, 0), false)
+    // Ye DIED. Too bad.
+    music.play(music.createSoundEffect(WaveShape.Noise, 5000, 5000, 129, 0, 25, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+    // Ye got HIT?!
+    music.play(music.createSoundEffect(WaveShape.Sine, 745, 1, 217, 0, 75, SoundExpressionEffect.Warble, InterpolationCurve.Logarithmic), music.PlaybackMode.InBackground)
+}
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
         mySprite.y += 25
