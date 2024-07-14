@@ -22,8 +22,21 @@ function Play () {
     characterAnimations.rule(Predicate.NotMoving)
     )
     pause(600)
-    game.setGameOverMessage(true, "Not Done Yet.")
-    game.gameOver(true)
+    sprites.destroy(mySprite)
+    scene.setBackgroundColor(8)
+    scene.setBackgroundImage(assets.image`Background`)
+    Facing_R = true
+    tiles.setCurrentTilemap(tilemap`level`)
+    mySprite = sprites.create(assets.image`Pirate`, SpriteKind.Player)
+    animation.runImageAnimation(
+    mySprite,
+    assets.animation`Pirate Stand`,
+    200,
+    true
+    )
+    controller.moveSprite(mySprite, 50, 50)
+    tiles.setCurrentTilemap(tilemap`level5`)
+    music.play(music.createSong(assets.song`Marchin Into Town`), music.PlaybackMode.LoopingInBackground)
 }
 function Music () {
     characterAnimations.runFrames(
@@ -33,8 +46,9 @@ function Music () {
     characterAnimations.rule(Predicate.NotMoving)
     )
     pause(600)
+    sprites.destroy(mySprite)
     scene.setBackgroundImage(assets.image`myImage0`)
-    textSprite = textsprite.create("Song " + Music_Counter, 1, 15)
+    textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
     Music_Counter_Max = 8
     textSprite.setPosition(75, 60)
 }
@@ -107,6 +121,7 @@ function Play_Music () {
 }
 let Music_Counter_Max = 0
 let textSprite: TextSprite = null
+let Facing_R = false
 let mySprite: Sprite = null
 let Music_Counter = 0
 let In_Music = 0
