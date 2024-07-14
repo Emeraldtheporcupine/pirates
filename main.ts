@@ -9,6 +9,8 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function Menu_Main () {
+    music.stopAllSounds()
+    music.play(music.createSong(assets.song`mySong2`), music.PlaybackMode.LoopingInBackground)
     scene.setBackgroundImage(assets.image`Menu`)
     sprites.destroyAllSpritesOfKind(SpriteKind.Text)
     mySprite = sprites.create(assets.image`myImage`, SpriteKind.Cursor)
@@ -59,6 +61,20 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         Menu_Main()
     }
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    music.stopAllSounds()
+    console.log(In_Music)
+    if (mySprite.y == 40) {
+        Playing = 1
+        Play()
+    } else if (mySprite.y == 65) {
+        In_Music = 1
+        Music()
+    }
+    if (In_Music > 0) {
+        Play_Music()
+    }
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (In_Music > 0) {
         sprites.destroy(textSprite)
@@ -71,18 +87,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             textSprite = textsprite.create("Song " + Music_Counter, 1, 15)
             textSprite.setPosition(75, 60)
         }
-    }
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    console.log(In_Music)
-    if (mySprite.y == 40) {
-        Play()
-    } else if (mySprite.y == 65) {
-        In_Music = 1
-        Music()
-    }
-    if (In_Music > 0) {
-        Play_Music()
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -119,6 +123,7 @@ function Play_Music () {
         music.play(music.createSong(assets.song`mySong3`), music.PlaybackMode.LoopingInBackground)
     }
 }
+let Playing = 0
 let Music_Counter_Max = 0
 let textSprite: TextSprite = null
 let Facing_R = false

@@ -322,6 +322,12 @@
         "displayName": "mySong3",
         "namespace": "mySongs."
     },
+    "song6": {
+        "data": "0078000408010106001c00010a006400f40164000004000000000000000000000000000000000207000000200002191d",
+        "mimeType": "application/mkcd-song",
+        "displayName": "mySong2",
+        "namespace": "mySongs."
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
