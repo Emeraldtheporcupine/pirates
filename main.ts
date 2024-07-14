@@ -81,28 +81,28 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 function Play_Music () {
     if (Music_Counter == 1) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`Song`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`Song`), music.PlaybackMode.LoopingInBackground)
     } else if (Music_Counter == 2) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`Theme`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`Theme`), music.PlaybackMode.LoopingInBackground)
     } else if (Music_Counter == 3) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`Title Intro`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`Title Intro`), music.PlaybackMode.LoopingInBackground)
     } else if (Music_Counter == 4) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`Title`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`Title`), music.PlaybackMode.LoopingInBackground)
     } else if (Music_Counter == 5) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`mySong`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`mySong`), music.PlaybackMode.LoopingInBackground)
     } else if (Music_Counter == 6) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`mySong1`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`mySong1`), music.PlaybackMode.LoopingInBackground)
     } else if (Music_Counter == 7) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`mySong0`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`mySong0`), music.PlaybackMode.LoopingInBackground)
     } else if (Music_Counter == 8) {
         music.stopAllSounds()
-        music.play(music.createSong(assets.song`mySong3`), music.PlaybackMode.InBackground)
+        music.play(music.createSong(assets.song`mySong3`), music.PlaybackMode.LoopingInBackground)
     }
 }
 let Music_Counter_Max = 0
