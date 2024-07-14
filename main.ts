@@ -26,8 +26,20 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`myAnim`,
+        100,
+        false
+        )
         Play()
     } else if (mySprite.y == 65) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`myAnim`,
+        100,
+        false
+        )
         Music()
     }
 })
