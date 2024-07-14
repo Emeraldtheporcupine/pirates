@@ -16,7 +16,7 @@ function Play () {
     characterAnimations.rule(Predicate.NotMoving)
     )
     pause(600)
-    game.gameOver(true)
+    textSprite = textsprite.create("")
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.y == 40) {
@@ -42,6 +42,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
+let textSprite: TextSprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`Menu`)
 game.setDialogTextColor(10)
