@@ -28,9 +28,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (Swinging_Sword > 0) {
+        info.changeCountdownBy(5)
         sprites.destroy(otherSprite)
     } else {
-        info.changeLifeBy(-1)
+        info.changeCountdownBy(-5)
         sprites.destroy(otherSprite)
     }
 })
@@ -56,7 +57,6 @@ function Play () {
     scene.setBackgroundImage(assets.image`Background`)
     Facing_R = true
     tiles.setCurrentTilemap(tilemap`level`)
-    info.setLife(4)
     mySprite = sprites.create(assets.image`Pirate`, SpriteKind.Player)
     animation.runImageAnimation(
     mySprite,
@@ -65,17 +65,10 @@ function Play () {
     true
     )
     controller.moveSprite(mySprite, 50, 50)
+    info.startCountdown(30)
     tiles.setCurrentTilemap(tilemap`level5`)
     music.play(music.createSong(assets.song`Marchin Into Town`), music.PlaybackMode.LoopingInBackground)
 }
-info.onLifeZero(function () {
-    game.setGameOverScoringType(game.ScoringType.HighScore)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
-    Playing = 0
-    music.stopAllSounds()
-    Menu_Main()
-})
 controller.left.onEvent(ControllerButtonEvent.Released, function () {
     if (Playing > 0) {
         Swinging_Sword = 0
@@ -86,6 +79,13 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
         true
         )
     }
+})
+info.onCountdownEnd(function () {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
+    Playing = 0
+    music.stopAllSounds()
+    Menu_Main()
 })
 controller.right.onEvent(ControllerButtonEvent.Released, function () {
     if (Playing > 0) {
@@ -280,10 +280,5 @@ game.onUpdateInterval(2000, function () {
         200,
         true
         )
-    }
-})
-game.onUpdateInterval(1000, function () {
-    if (Playing > 0) {
-        info.changeScoreBy(1)
     }
 })
