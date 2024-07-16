@@ -26,6 +26,15 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         )
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    if (Swinging_Sword > 0) {
+        info.changeCountdownBy(5)
+        sprites.destroy(otherSprite)
+    } else {
+        info.changeCountdownBy(-5)
+        sprites.destroy(otherSprite)
+    }
+})
 function Play () {
     characterAnimations.runFrames(
     mySprite,
@@ -51,11 +60,100 @@ function Play () {
     tiles.setCurrentTilemap(tilemap`level5`)
     music.play(music.createSong(assets.song`Marchin Into Town`), music.PlaybackMode.LoopingInBackground)
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        Swinging_Sword = 0
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Stand L`,
+        200,
+        true
+        )
+    }
+})
+info.onCountdownEnd(function () {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
+    Playing = 0
+    music.stopAllSounds()
+    Menu_Main()
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        Swinging_Sword = 0
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Stand`,
+        200,
+        true
+        )
+    }
+})
+function Music () {
+    characterAnimations.runFrames(
+    mySprite,
+    assets.animation`myAnim`,
+    100,
+    characterAnimations.rule(Predicate.NotMoving)
+    )
+    pause(600)
+    sprites.destroy(mySprite)
+    scene.setBackgroundImage(assets.image`myImage0`)
+    textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
+    Music_Counter_Max = 8
+    textSprite.setPosition(75, 60)
+}
+function Menu_Main () {
+    Swinging_Sword = 0
+    music.stopAllSounds()
+    music.play(music.createSong(assets.song`mySong2`), music.PlaybackMode.LoopingInBackground)
+    scene.setBackgroundImage(assets.image`Menu`)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+    mySprite = sprites.create(assets.image`myImage`, SpriteKind.Cursor)
+    mySprite.setPosition(30, 40)
+}
+controller.up.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        Swinging_Sword = 0
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Wait Back`,
+        200,
+        true
+        )
+    }
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Playing > 0) {
+        Swinging_Sword = 0
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Walk0`,
+        200,
+        true
+        )
+    }
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (In_Music > 0) {
-        music.stopAllSounds()
-        In_Music = 0
-        Menu_Main()
+        sprites.destroy(textSprite)
+        Music_Counter += 1
+        textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
+        textSprite.setPosition(75, 60)
+        if (Music_Counter_Max < Music_Counter) {
+            sprites.destroy(textSprite)
+            Music_Counter = 1
+            textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
+            textSprite.setPosition(75, 60)
+        }
+    }
+    if (Playing > 0) {
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Pirate Walk`,
+        200,
+        true
+        )
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -92,129 +190,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
-controller.down.onEvent(ControllerButtonEvent.Released, function () {
-    if (Playing > 0) {
-        Swinging_Sword = 0
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`Wait Forward`,
-        200,
-        true
-        )
-    }
-})
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Playing > 0) {
-        Swinging_Sword = 0
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`Pirate Walk0`,
-        200,
-        true
-        )
-    }
-})
-controller.right.onEvent(ControllerButtonEvent.Released, function () {
-    if (Playing > 0) {
-        Swinging_Sword = 0
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`Pirate Stand`,
-        200,
-        true
-        )
-    }
-})
-controller.left.onEvent(ControllerButtonEvent.Released, function () {
-    if (Playing > 0) {
-        Swinging_Sword = 0
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`Pirate Stand L`,
-        200,
-        true
-        )
-    }
-})
-info.onCountdownEnd(function () {
-    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
-    Playing = 0
-    music.stopAllSounds()
-    Menu_Main()
-})
-function Music () {
-    characterAnimations.runFrames(
-    mySprite,
-    assets.animation`myAnim`,
-    100,
-    characterAnimations.rule(Predicate.NotMoving)
-    )
-    pause(600)
-    sprites.destroy(mySprite)
-    scene.setBackgroundImage(assets.image`myImage0`)
-    textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
-    Music_Counter_Max = 8
-    textSprite.setPosition(75, 60)
-}
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (In_Music > 0) {
-        sprites.destroy(textSprite)
-        Music_Counter += 1
-        textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
-        textSprite.setPosition(75, 60)
-        if (Music_Counter_Max < Music_Counter) {
-            sprites.destroy(textSprite)
-            Music_Counter = 1
-            textSprite = textsprite.create("Song " + Music_Counter, 13, 15)
-            textSprite.setPosition(75, 60)
-        }
-    }
-    if (Playing > 0) {
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`Pirate Walk`,
-        200,
-        true
-        )
-    }
-})
-function Menu_Main () {
-    Swinging_Sword = 0
-    music.stopAllSounds()
-    music.play(music.createSong(assets.song`mySong2`), music.PlaybackMode.LoopingInBackground)
-    scene.setBackgroundImage(assets.image`Menu`)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Text)
-    mySprite = sprites.create(assets.image`myImage`, SpriteKind.Cursor)
-    mySprite.setPosition(30, 40)
-}
-controller.up.onEvent(ControllerButtonEvent.Released, function () {
-    if (Playing > 0) {
-        Swinging_Sword = 0
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`Wait Back`,
-        200,
-        true
-        )
-    }
-})
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.y == 40) {
-        mySprite.y += 25
-    } else if (mySprite.y == 65) {
-    	
-    }
-    if (Playing > 0) {
-        Swinging_Sword = 0
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`Walk Forward`,
-        200,
-        true
-        )
-    }
-})
 function Play_Music () {
     if (Music_Counter == 1) {
         music.stopAllSounds()
@@ -242,13 +217,38 @@ function Play_Music () {
         music.play(music.createSong(assets.song`mySong3`), music.PlaybackMode.LoopingInBackground)
     }
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    if (Swinging_Sword > 0) {
-        info.changeCountdownBy(5)
-        sprites.destroy(otherSprite)
-    } else {
-        info.changeCountdownBy(-5)
-        sprites.destroy(otherSprite)
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mySprite.y == 40) {
+        mySprite.y += 25
+    } else if (mySprite.y == 65) {
+    	
+    }
+    if (Playing > 0) {
+        Swinging_Sword = 0
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Walk Forward`,
+        200,
+        true
+        )
+    }
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (In_Music > 0) {
+        music.stopAllSounds()
+        In_Music = 0
+        Menu_Main()
+    }
+})
+controller.down.onEvent(ControllerButtonEvent.Released, function () {
+    if (Playing > 0) {
+        Swinging_Sword = 0
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`Wait Forward`,
+        200,
+        true
+        )
     }
 })
 let Militia: Sprite = null
